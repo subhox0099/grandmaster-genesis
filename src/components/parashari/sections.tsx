@@ -326,14 +326,16 @@ export const Programs = () => {
   );
 };
 
-/* ============== BONUS ============== */
-const stairs = [
-  { n: "Yantra", d: "Sacred geometric power" },
-  { n: "Mantra", d: "Vibrational invocation" },
-  { n: "Tantra", d: "Subtle energy mastery" },
-  { n: "Chakra Balancing", d: "Inner alignment" },
-  { n: "Remedies", d: "Practical solutions" },
-  { n: "Past Life Regression", d: "Soul memory" },
+/* ============== BONUS — now "Everything a Grandmaster Needs" ============== */
+const grandmasterNeeds = [
+  { icon: Video, n: "48 Weeks Live Classes", d: "Weekly immersive sessions with master mentors." },
+  { icon: Library, n: "HD Recorded Lectures", d: "Lifetime access on any device, anytime." },
+  { icon: ScrollText, n: "Proprietary Study Material", d: "Handcrafted manuals, charts and worksheets." },
+  { icon: Users, n: "VIP Community", d: "An intimate global circle of serious seekers." },
+  { icon: Award, n: "Official Certification", d: "Graduate as a certified Parashari Grandmaster." },
+  { icon: MessageCircleQuestion, n: "Doubt Resolution", d: "Dedicated 1:1 mentorship and support." },
+  { icon: Gift, n: "Bonus Resources", d: "Mantras, yantras, ritual guides and references." },
+  { icon: CalendarClock, n: "Flexible Schedule", d: "Live + recorded format on your rhythm." },
 ];
 export const Bonus = () => (
   <section id="bonus" className="relative py-28 overflow-hidden bg-primary text-primary-foreground">
@@ -343,27 +345,30 @@ export const Bonus = () => (
 
     <div className="relative container max-w-6xl text-center">
       <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full glass gold-border mb-6">
-        <Gift className="w-4 h-4 text-accent animate-glow-pulse" />
-        <span className="font-display text-xs tracking-[0.4em] uppercase text-accent font-semibold">Free Bonus · Worth ₹40,000</span>
+        <Crown className="w-4 h-4 text-accent animate-glow-pulse" />
+        <span className="font-display text-xs tracking-[0.4em] uppercase text-accent font-semibold">The Complete Toolkit</span>
       </div>
       <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-5 text-shadow-gold">
-        Get <span className="shimmer-gold">6 Spiritual Stairs</span> Free
+        Everything a <span className="shimmer-gold">Grandmaster</span> Needs
       </h2>
       <div className="divider-ornament my-6"><span className="text-accent">✦</span></div>
       <p className="text-lg text-primary-foreground/75 max-w-2xl mx-auto mb-14">
-        Six profound disciplines woven into your journey — gifted to every Grandmaster student to deepen the path.
+        Eight pillars of value that make this the most comprehensive spiritual education today — every tool, every resource, all in one sacred container.
       </p>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {stairs.map((s, i) => (
-          <div key={s.n} className="group relative rounded-2xl glass gold-border p-8 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-2">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 text-left">
+        {grandmasterNeeds.map((s, i) => (
+          <div key={s.n} className="group relative rounded-2xl glass gold-border p-7 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-2">
             <div className="absolute -inset-px rounded-2xl bg-gradient-gold opacity-0 group-hover:opacity-30 blur-md transition-opacity" />
             <div className="relative">
-              <div className="w-14 h-14 rounded-full bg-gradient-gold mx-auto mb-4 flex items-center justify-center font-display text-primary text-lg shadow-gold ring-1 ring-accent/40">
-                {String(i + 1).padStart(2, "0")}
+              <div className="flex items-center justify-between mb-4">
+                <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center shadow-gold">
+                  <s.icon className="w-5 h-5 text-primary" />
+                </div>
+                <span className="font-display text-[10px] tracking-[0.3em] text-accent/60">0{i + 1}</span>
               </div>
-              <h3 className="font-serif text-2xl mb-1">{s.n}</h3>
-              <p className="text-sm text-primary-foreground/65">{s.d}</p>
+              <h3 className="font-serif text-xl mb-2">{s.n}</h3>
+              <p className="text-sm text-primary-foreground/65 leading-relaxed">{s.d}</p>
             </div>
           </div>
         ))}
