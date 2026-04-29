@@ -243,25 +243,27 @@ export const Bonus = () => (
   <section id="bonus" className="relative py-28 overflow-hidden bg-primary text-primary-foreground">
     <img src={bonus} alt="" loading="lazy" width={1920} height={800} className="absolute inset-0 w-full h-full object-cover opacity-30" />
     <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(350 70% 12% / 0.92), hsl(350 60% 8% / 0.95))" }} />
+    <div className="absolute inset-0 luxury-noise opacity-30" />
 
     <div className="relative container max-w-6xl text-center">
-      <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-6">
+      <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full glass gold-border mb-6">
         <Gift className="w-4 h-4 text-accent animate-glow-pulse" />
-        <span className="text-xs tracking-[0.35em] uppercase text-accent font-semibold">Free Bonus · Worth ₹40,000</span>
+        <span className="font-display text-xs tracking-[0.4em] uppercase text-accent font-semibold">Free Bonus · Worth ₹40,000</span>
       </div>
-      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-5">
+      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-5 text-shadow-gold">
         Get <span className="shimmer-gold">6 Spiritual Stairs</span> Free
       </h2>
+      <div className="divider-ornament my-6"><span className="text-accent">✦</span></div>
       <p className="text-lg text-primary-foreground/75 max-w-2xl mx-auto mb-14">
         Six profound disciplines woven into your journey — gifted to every Grandmaster student to deepen the path.
       </p>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {stairs.map((s, i) => (
-          <div key={s.n} className="group relative rounded-2xl glass p-7 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-2">
+          <div key={s.n} className="group relative rounded-2xl glass gold-border p-8 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-2">
             <div className="absolute -inset-px rounded-2xl bg-gradient-gold opacity-0 group-hover:opacity-30 blur-md transition-opacity" />
             <div className="relative">
-              <div className="w-12 h-12 rounded-full bg-gradient-gold mx-auto mb-4 flex items-center justify-center font-serif text-primary text-lg shadow-gold">
+              <div className="w-14 h-14 rounded-full bg-gradient-gold mx-auto mb-4 flex items-center justify-center font-display text-primary text-lg shadow-gold ring-1 ring-accent/40">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <h3 className="font-serif text-2xl mb-1">{s.n}</h3>
@@ -269,6 +271,13 @@ export const Bonus = () => (
             </div>
           </div>
         ))}
+      </div>
+
+      <div className="mt-14 inline-flex flex-wrap items-center justify-center gap-4 px-8 py-5 rounded-full glass gold-border">
+        <span className="text-xs tracking-[0.3em] uppercase text-primary-foreground/70">Total Combined Value</span>
+        <span className="font-display text-2xl text-gradient-gold tracking-wider">₹2,40,000</span>
+        <span className="text-primary-foreground/40">·</span>
+        <span className="text-xs tracking-[0.3em] uppercase text-accent">Yours · Today's Sacred Price</span>
       </div>
     </div>
   </section>
