@@ -144,93 +144,187 @@ export const Benefits = () => (
 );
 
 /* ============== FEATURES + PILLARS ============== */
-const features = [
-  { icon: Video, img: featLive, t: "48 Weeks of Live Classes", d: "Weekly immersive live sessions with master mentors. Ask, debate, evolve. Every session is a sacred container for transformation." },
-  { icon: Library, img: featStudy, t: "HD Recorded Lectures", d: "Every session recorded in cinematic HD. Revisit any teaching, anytime, on any device. Yours forever." },
-  { icon: ScrollText, img: featStudy, t: "Proprietary Study Material", d: "Handcrafted manuals, charts, worksheets and reference scriptures designed exclusively for our program." },
-  { icon: Users, img: featCommunity, t: "VIP Community Access", d: "An intimate global circle of serious seekers. Network, practice and grow alongside extraordinary souls." },
-  { icon: Award, img: featCert, t: "Official Certification", d: "Graduate as a certified Parashari Grandmaster — recognised across the spiritual industry." },
-  { icon: MessageCircleQuestion, img: featLive, t: "Doubt Resolution", d: "Dedicated support sessions and 1:1 mentorship to ensure no question goes unanswered." },
-  { icon: Gift, img: featStudy, t: "Bonus Resources", d: "Curated mantras, yantras, ritual guides and printable references — a treasure vault of spiritual tools." },
-  { icon: CalendarClock, img: featCommunity, t: "Flexible Schedule", d: "Live + recorded format means you learn on your rhythm, without ever falling behind." },
+/* Features list — now content of "6 Spiritual Stairs" */
+const stairFeatures = [
+  { icon: Sparkles, img: featStudy, t: "Yantra", d: "Master the sacred geometric diagrams that channel cosmic energies. Learn to draw, energise and use yantras as living instruments of power, protection and prosperity.", points: ["Sacred geometry foundations", "Energising rituals", "Daily activation practice"] },
+  { icon: Flame, img: featLive, t: "Mantra", d: "The vibrational science of sound. Discover the bija mantras, their precise pronunciation, and the rhythmic disciplines that turn whispered syllables into transformation.", points: ["Bija & seed sounds", "Japa & rosary practice", "Personal mantra design"] },
+  { icon: Eye, img: featCert, t: "Tantra", d: "Beyond the misconceptions — the true tantra is the science of subtle energy. Awaken inner currents through breath, intention and sacred ritual structure.", points: ["Subtle body anatomy", "Energy invocation", "Ethical practice"] },
+  { icon: Disc3, img: featCommunity, t: "Chakra Balancing", d: "Map, sense and align the seven primary energy centres. Restore inner equilibrium through guided practice, sound and visualisation.", points: ["7 chakra deep dive", "Diagnostic methods", "Daily balancing flow"] },
+  { icon: Gem, img: featStudy, t: "Remedies", d: "Practical, scripture-rooted solutions for life's blockages — gemstones, rituals, donations and lifestyle alignments tailored to a chart.", points: ["Gem & metal therapy", "Vedic remedies", "Lifestyle prescriptions"] },
+  { icon: InfinityIcon, img: finalCosmos, t: "Past Life Regression", d: "Journey safely into soul memory. Understand recurring patterns, karmic relationships and the deeper arc of your incarnations.", points: ["Guided regression", "Pattern recognition", "Karmic resolution"] },
 ];
 
-const pillars = [
-  { icon: CircleDot, n: "Numerology" },
-  { icon: Star, n: "Vedic Astrology" },
-  { icon: Disc3, n: "KP Astrology" },
-  { icon: Gem, n: "Gemstone Science" },
-  { icon: Home, n: "Vastu Shastra" },
-  { icon: ScrollText, n: "Lal Kitab" },
-  { icon: Eye, n: "Face Reading" },
-  { icon: Flame, n: "Reiki Healing" },
-  { icon: Sparkles, n: "Tarot Reading" },
-  { icon: Sun, n: "Nakshatra" },
-  { icon: Mountain, n: "Crystal Rudraksha" },
-  { icon: Hand, n: "Palmistry" },
-];
+export const FeaturesAndPillars = () => {
+  const [active, setActive] = useState(0);
+  const f = stairFeatures[active];
+  return (
+    <section id="features" className="relative py-28 bg-gradient-beige">
+      <div className="container max-w-7xl">
+        <SectionHeader eyebrow="Inside the program" title="Everything a Grandmaster needs" sub="Six sacred stairs that form the complete arc of your transformation. Click any stair to explore." />
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-10 items-start">
+          {/* LEFT - clickable cards */}
+          <div className="lg:col-span-2 space-y-3">
+            {stairFeatures.map((s, i) => {
+              const isActive = i === active;
+              return (
+                <button
+                  key={s.t}
+                  onClick={() => setActive(i)}
+                  className={`w-full text-left rounded-2xl p-5 flex items-center gap-4 transition-all duration-500 gold-border group ${isActive ? "bg-gradient-maroon text-primary-foreground shadow-maroon -translate-y-0.5" : "bg-card hover:shadow-gold hover:-translate-y-0.5"}`}
+                >
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-all ${isActive ? "bg-gradient-gold shadow-gold" : "bg-gradient-maroon"}`}>
+                    <s.icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-accent"}`} />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className={`text-[10px] tracking-[0.35em] uppercase font-semibold mb-0.5 ${isActive ? "text-accent" : "text-accent"}`}>Stair 0{i + 1}</div>
+                    <div className={`font-serif text-xl ${isActive ? "text-primary-foreground" : "text-primary"}`}>{s.t}</div>
+                  </div>
+                  <ArrowRight className={`w-4 h-4 transition-all ${isActive ? "text-accent translate-x-0" : "text-muted-foreground -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"}`} />
+                </button>
+              );
+            })}
+          </div>
 
-export const FeaturesAndPillars = () => (
-  <section id="features" className="relative py-28 bg-gradient-beige">
-    <div className="container max-w-7xl">
-      <SectionHeader eyebrow="Inside the program" title="Everything a Grandmaster needs" sub="Eight core pillars of value that make this the most comprehensive spiritual education today." />
-      <div className="grid lg:grid-cols-3 gap-10">
-        {/* LEFT - features */}
-        <div className="lg:col-span-2 space-y-8">
-          {features.map((f, i) => (
-            <article
-              key={f.t}
-              className={`group rounded-3xl bg-card border border-border shadow-elegant hover:shadow-maroon overflow-hidden transition-all duration-700 hover:-translate-y-1 grid md:grid-cols-5 ${i % 2 ? "md:[&>div:first-child]:order-2" : ""}`}
-            >
-              <div className="md:col-span-2 relative overflow-hidden h-56 md:h-auto">
-                <img src={f.img} alt={f.t} loading="lazy" width={1000} height={800} className="w-full h-full object-cover transition-transform duration-[1.5s] group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/50 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4 w-11 h-11 rounded-xl bg-gradient-gold flex items-center justify-center shadow-gold">
-                  <f.icon className="w-5 h-5 text-primary" />
+          {/* RIGHT - big image + content */}
+          <div className="lg:col-span-3">
+            <div className="sticky top-28 rounded-[2rem] overflow-hidden bg-card shadow-maroon gold-border">
+              <div className="relative h-[360px] md:h-[440px] overflow-hidden">
+                <img key={f.img} src={f.img} alt={f.t} className="w-full h-full object-cover animate-fade-in" style={{ animation: "ken-burns 14s ease-in-out infinite alternate" }} />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent" />
+                <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full glass text-[10px] tracking-[0.4em] uppercase text-accent-glow">Stair 0{active + 1} · {f.t}</div>
+                <div className="absolute bottom-6 left-6 right-6">
+                  <h3 className="font-serif text-4xl md:text-5xl text-primary-foreground text-shadow-gold">{f.t}</h3>
                 </div>
               </div>
-              <div className="md:col-span-3 p-8 flex flex-col justify-center">
-                <div className="text-xs tracking-[0.3em] uppercase text-accent font-semibold mb-2">Feature 0{i + 1}</div>
-                <h3 className="font-serif text-3xl text-primary mb-3">{f.t}</h3>
-                <p className="text-muted-foreground leading-relaxed">{f.d}</p>
+              <div className="p-8 md:p-10">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">{f.d}</p>
+                <ul className="space-y-3 mb-2">
+                  {f.points.map((p) => (
+                    <li key={p} className="flex items-center gap-3 text-primary">
+                      <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
+                      <span className="font-medium">{p}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </article>
-          ))}
-        </div>
-
-        {/* RIGHT - sticky pillars */}
-        <aside id="pillars" className="lg:col-span-1">
-          <div className="sticky top-28 rounded-3xl bg-gradient-maroon text-primary-foreground p-8 shadow-maroon overflow-hidden relative">
-            <div className="absolute -top-16 -right-16 w-56 h-56 text-accent/15 animate-spin-slow">
-              <SacredMandala className="w-full h-full" />
-            </div>
-            <div className="relative">
-              <div className="text-xs tracking-[0.3em] uppercase text-accent font-semibold mb-3">12 Spiritual Pillars</div>
-              <h3 className="font-serif text-3xl mb-2">Program Modules</h3>
-              <p className="text-primary-foreground/70 text-sm mb-6">Choose any one to master deeply.</p>
-
-              <ul className="space-y-1.5">
-                {pillars.map((p, i) => (
-                  <li key={p.n} className="group flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-accent/15 transition-colors cursor-pointer">
-                    <div className="w-8 h-8 rounded-lg glass flex items-center justify-center text-accent text-xs font-semibold">{String(i + 1).padStart(2, "0")}</div>
-                    <p.icon className="w-4 h-4 text-accent/80" />
-                    <span className="text-sm font-medium">{p.n}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-6 p-4 rounded-2xl border border-accent/40 bg-accent/10 text-center">
-                <div className="text-xs tracking-[0.3em] uppercase text-accent mb-1">Highlight</div>
-                <div className="font-serif text-xl">Choose ANY 1 Course</div>
-              </div>
-              <Button variant="hero" size="lg" className="w-full mt-5 rounded-full">Reserve My Pillar</Button>
             </div>
           </div>
-        </aside>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
+
+/* ============== PROGRAMS (12 Pillars with info card) ============== */
+const programs = [
+  { icon: CircleDot, n: "Numerology", weeks: 8, fee: "₹49,000", tag: "Number sciences", d: "Decode the vibrational language of numbers. Master Pythagorean and Chaldean systems, life-path charting and predictive cycles for personal and client work." },
+  { icon: Star, n: "Vedic Astrology", weeks: 12, fee: "₹79,000", tag: "Jyotisha · Foundational", d: "The crown jewel of cosmic sciences. Build, read and interpret birth charts using classical Parashari principles, dashas, transits and yogas." },
+  { icon: Disc3, n: "KP Astrology", weeks: 10, fee: "₹69,000", tag: "Predictive precision", d: "The Krishnamurti Paddhati system — sub-lord theory, ruling planets and pinpoint horary techniques used by professional consultants." },
+  { icon: Gem, n: "Gemstone Science", weeks: 6, fee: "₹39,000", tag: "Ratna Vigyan", d: "Identify, recommend and energise gemstones. Learn the planetary correspondences, quality grading and prescription protocols." },
+  { icon: Home, n: "Vastu Shastra", weeks: 8, fee: "₹55,000", tag: "Sacred architecture", d: "Align homes and workspaces with cosmic flow. Directional sciences, elemental balance and remedial design without demolition." },
+  { icon: ScrollText, n: "Lal Kitab", weeks: 8, fee: "₹49,000", tag: "Folk astrology", d: "The unique 'Red Book' system — its 35-year horoscope, karmic debts and famously simple yet potent household remedies." },
+  { icon: Eye, n: "Face Reading", weeks: 6, fee: "₹35,000", tag: "Samudrika Shastra", d: "Read character, destiny and health from facial features, lines and proportions — the ancient art refined for modern consultation." },
+  { icon: Flame, n: "Reiki Healing", weeks: 6, fee: "₹39,000", tag: "Energy healing", d: "Attunement through three levels — channel universal life force for self-healing, distance healing and client sessions." },
+  { icon: Sparkles, n: "Tarot Reading", weeks: 8, fee: "₹45,000", tag: "Oracular wisdom", d: "Major and minor arcana mastery, professional spreads, intuitive interpretation and ethical client practice." },
+  { icon: Sun, n: "Nakshatra", weeks: 8, fee: "₹55,000", tag: "27 lunar mansions", d: "The deepest layer of Vedic astrology — nakshatra padas, deities, symbols and their predictive applications." },
+  { icon: Mountain, n: "Crystal & Rudraksha", weeks: 5, fee: "₹35,000", tag: "Sacred objects", d: "Selection, cleansing, programming and prescription of crystals and rudraksha beads for healing and spiritual practice." },
+  { icon: Hand, n: "Palmistry", weeks: 7, fee: "₹42,000", tag: "Hasta Samudrika", d: "Lines, mounts, fingers and shapes — read the living blueprint of destiny written on every hand." },
+];
+
+export const Programs = () => {
+  const [active, setActive] = useState(1);
+  const p = programs[active];
+  return (
+    <section id="pillars" className="relative py-28 bg-primary text-primary-foreground overflow-hidden">
+      <div className="absolute inset-0 sacred-pattern opacity-40" />
+      <div className="absolute inset-0 luxury-noise opacity-25" />
+      <div className="absolute -top-40 -right-40 w-[500px] h-[500px] text-accent/10 animate-spin-slow pointer-events-none">
+        <SacredMandala className="w-full h-full" />
+      </div>
+      <div className="relative container max-w-7xl">
+        <SectionHeader light eyebrow="12 Spiritual Pillars" title="Choose your sacred path" sub="Each program is a complete mastery — pick one and walk it deeply with our master mentors." />
+        <div className="grid lg:grid-cols-5 gap-8 items-start">
+          {/* LEFT - pillar list */}
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-3">
+            {programs.map((pr, i) => {
+              const isActive = i === active;
+              return (
+                <button
+                  key={pr.n}
+                  onClick={() => setActive(i)}
+                  className={`text-left rounded-2xl p-4 flex items-center gap-3 transition-all duration-500 gold-border group ${isActive ? "bg-gradient-gold text-primary shadow-gold -translate-y-0.5" : "glass hover:bg-accent/10"}`}
+                >
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 ${isActive ? "bg-primary/20" : "bg-accent/15"}`}>
+                    <pr.icon className={`w-4 h-4 ${isActive ? "text-primary" : "text-accent"}`} />
+                  </div>
+                  <div className="min-w-0">
+                    <div className={`text-[9px] tracking-[0.3em] uppercase font-semibold ${isActive ? "text-primary/80" : "text-accent/70"}`}>{String(i + 1).padStart(2, "0")}</div>
+                    <div className={`text-sm font-semibold truncate ${isActive ? "text-primary" : "text-primary-foreground"}`}>{pr.n}</div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* RIGHT - info card */}
+          <div className="lg:col-span-3">
+            <div className="sticky top-28 rounded-[2rem] glass gold-border p-8 md:p-10 shadow-maroon relative overflow-hidden">
+              <div className="absolute -top-20 -right-20 w-72 h-72 bg-gradient-radial-gold opacity-60 pointer-events-none" style={{ background: "var(--gradient-radial-gold)" }} />
+              <div className="relative">
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-gold flex items-center justify-center shadow-gold">
+                      <p.icon className="w-7 h-7 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-[10px] tracking-[0.4em] uppercase text-accent font-semibold mb-1">{p.tag}</div>
+                      <h3 className="font-serif text-4xl md:text-5xl text-primary-foreground">{p.n}</h3>
+                    </div>
+                  </div>
+                  <div className="hidden sm:block px-4 py-2 rounded-full glass gold-border text-[10px] tracking-[0.3em] uppercase text-accent">Pillar {String(active + 1).padStart(2, "0")} / 12</div>
+                </div>
+
+                <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8">{p.d}</p>
+
+                <div className="grid sm:grid-cols-3 gap-4 mb-8">
+                  <div className="rounded-2xl glass p-5 gold-border">
+                    <Clock className="w-5 h-5 text-accent mb-2" />
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-primary-foreground/60 mb-1">Duration</div>
+                    <div className="font-display text-2xl text-accent">{p.weeks} Weeks</div>
+                  </div>
+                  <div className="rounded-2xl glass p-5 gold-border">
+                    <GraduationCap className="w-5 h-5 text-accent mb-2" />
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-primary-foreground/60 mb-1">Format</div>
+                    <div className="font-display text-lg text-accent">Live + HD Recorded</div>
+                  </div>
+                  <div className="rounded-2xl bg-gradient-gold p-5 shadow-gold">
+                    <IndianRupee className="w-5 h-5 text-primary mb-2" />
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-primary/70 mb-1">Investment</div>
+                    <div className="font-display text-2xl text-primary">{p.fee}</div>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-accent/30 bg-accent/10 p-5 mb-8">
+                  <div className="text-[10px] tracking-[0.3em] uppercase text-accent mb-2 font-semibold">Includes</div>
+                  <div className="grid sm:grid-cols-2 gap-2 text-sm text-primary-foreground/85">
+                    {["Live mentorship sessions", "Lifetime HD recordings", "Proprietary study material", "Official certification", "VIP community access", "1:1 doubt resolution"].map((x) => (
+                      <div key={x} className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-accent shrink-0" /><span>{x}</span></div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <Button variant="hero" size="lg" className="rounded-full">Enrol in {p.n}</Button>
+                  <Button variant="outlineGold" size="lg" className="rounded-full">Download Brochure</Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 /* ============== BONUS ============== */
 const stairs = [
