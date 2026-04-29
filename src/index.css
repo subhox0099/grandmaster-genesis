@@ -88,6 +88,10 @@
     font-family: 'Cormorant Garamond', 'Playfair Display', serif;
     letter-spacing: -0.01em;
   }
+  .font-display {
+    font-family: 'Cinzel', 'Cormorant Garamond', serif;
+    letter-spacing: 0.02em;
+  }
 }
 
 @layer utilities {
@@ -122,6 +126,44 @@
     background-image:
       radial-gradient(circle at 20% 20%, hsl(40 75% 52% / 0.08) 0, transparent 40%),
       radial-gradient(circle at 80% 60%, hsl(350 65% 22% / 0.08) 0, transparent 40%);
+  }
+
+  .gold-border {
+    position: relative;
+  }
+  .gold-border::before {
+    content: "";
+    position: absolute; inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(45 90% 65%), hsl(40 60% 35%), hsl(45 90% 65%));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .luxury-noise {
+    background-image:
+      radial-gradient(hsl(45 90% 65% / 0.06) 1px, transparent 1px),
+      radial-gradient(hsl(350 65% 22% / 0.05) 1px, transparent 1px);
+    background-size: 28px 28px, 36px 36px;
+    background-position: 0 0, 14px 14px;
+  }
+
+  .text-shadow-gold {
+    text-shadow: 0 0 30px hsl(45 90% 60% / 0.35), 0 2px 4px hsl(350 70% 8% / 0.5);
+  }
+
+  .divider-ornament {
+    display: flex; align-items: center; justify-content: center; gap: 1rem;
+  }
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: "";
+    flex: 1; max-width: 120px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(40 75% 52% / 0.6), transparent);
   }
 }
 
