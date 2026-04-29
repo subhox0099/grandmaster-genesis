@@ -5,6 +5,7 @@ import {
   BookOpen, Sparkles, Compass, Infinity as InfinityIcon, Briefcase, Heart, Eye, Flame,
   Video, Library, Crown, Award, MessageCircleQuestion, Gift, CalendarClock, Users,
   Star, Gem, Hand, Home, ScrollText, Sun, CircleDot, Flower2, Mountain, Disc3,
+  Quote,
 } from "lucide-react";
 import about from "@/assets/about-scholar.jpg";
 import bonus from "@/assets/bonus-banner.jpg";
@@ -20,31 +21,38 @@ export const About = () => (
     <div className="absolute -top-32 -left-32 w-96 h-96 text-accent/10 animate-spin-slow">
       <SacredMandala className="w-full h-full" />
     </div>
+    <div className="absolute top-1/3 right-10 w-2 h-32 bg-gradient-to-b from-transparent via-accent/40 to-transparent" />
     <div className="container max-w-7xl grid lg:grid-cols-2 gap-16 items-center">
       <div className="relative">
         <div className="absolute -inset-6 bg-gradient-gold opacity-20 blur-3xl rounded-full" />
-        <div className="relative rounded-[2rem] overflow-hidden shadow-maroon group">
+        <div className="relative rounded-[2rem] overflow-hidden shadow-maroon group gold-border">
           <img src={about} alt="Ancient spiritual scriptures" loading="lazy" width={1280} height={1280} className="w-full h-[600px] object-cover transition-transform duration-[2s] group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+          <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full glass text-[10px] tracking-[0.4em] uppercase text-accent-glow">Lineage · Parashari</div>
         </div>
-        <div className="absolute -bottom-8 -right-8 glass-light rounded-2xl px-6 py-5 shadow-elegant animate-float-slow">
-          <div className="text-3xl font-serif text-primary">10,000+</div>
+        <div className="absolute -bottom-8 -right-8 glass-light rounded-2xl px-6 py-5 shadow-elegant animate-float-slow gold-border">
+          <div className="text-3xl font-display text-primary tracking-wide">10,000+</div>
           <div className="text-xs tracking-widest uppercase text-muted-foreground">Seekers Transformed</div>
+        </div>
+        <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-gradient-gold opacity-90 flex flex-col items-center justify-center shadow-gold rotate-[-8deg] animate-float-slow">
+          <div className="font-display text-[10px] tracking-[0.3em] uppercase text-primary">Cohort</div>
+          <div className="font-serif text-2xl text-primary leading-none">07</div>
         </div>
       </div>
 
       <div>
-        <div className="inline-flex items-center gap-3 mb-5">
+        <div className="inline-flex items-center gap-3 mb-6">
           <span className="h-px w-10 bg-accent" />
-          <span className="text-xs tracking-[0.35em] uppercase text-accent font-semibold">The Journey</span>
+          <span className="font-display text-[11px] tracking-[0.45em] uppercase text-accent font-semibold">The Journey</span>
         </div>
         <h2 className="font-serif text-4xl md:text-6xl leading-[1.05] mb-6 text-primary">
           Not just a course. <br />A <span className="italic text-gradient-gold">transformation</span>.
         </h2>
+        <div className="h-px w-24 bg-gradient-to-r from-accent to-transparent mb-7" />
         <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
           The Parashari Grandmaster Program is a sacred 48-week immersion designed for the modern seeker. Walk the path that ancient sages walked — guided by master mentors, supported by a global community, and rooted in scripture-backed wisdom that has stood for millennia.
         </p>
-        <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+        <p className="text-lg text-muted-foreground mb-10 leading-relaxed italic">
           Every lesson is a step. Every practice is a doorway. By the end, you don't just understand spiritual sciences — you embody them.
         </p>
         <div className="grid grid-cols-3 gap-4">
@@ -53,9 +61,9 @@ export const About = () => (
             { icon: Video, k: "200+", v: "Lectures" },
             { icon: Users, k: "1:1", v: "Mentorship" },
           ].map(({ icon: Icon, k, v }) => (
-            <div key={v} className="rounded-2xl border border-border bg-card p-5 text-center hover:shadow-elegant hover:-translate-y-1 transition-all duration-500">
+            <div key={v} className="rounded-2xl bg-card p-5 text-center hover:shadow-gold hover:-translate-y-1 transition-all duration-500 gold-border">
               <Icon className="w-6 h-6 mx-auto text-accent mb-3" />
-              <div className="font-serif text-2xl text-primary">{k}</div>
+              <div className="font-display text-2xl text-primary tracking-wider">{k}</div>
               <div className="text-xs tracking-widest uppercase text-muted-foreground">{v}</div>
             </div>
           ))}
@@ -73,24 +81,28 @@ const whyItems = [
   { icon: InfinityIcon, t: "Lifetime Mindset Shift", d: "Tools, rituals and frameworks that stay with you forever." },
 ];
 export const Why = () => (
-  <section className="relative py-28 bg-gradient-beige">
+  <section className="relative py-28 bg-gradient-beige overflow-hidden">
+    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
     <div className="container max-w-7xl">
       <SectionHeader eyebrow="Why this program" title="Wisdom that walks with you for life" sub="Four pillars that make this the most complete spiritual mastery experience available today." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {whyItems.map(({ icon: Icon, t, d }, i) => (
-          <div key={t} style={{ animationDelay: `${i * 120}ms` }} className="group relative rounded-3xl bg-card p-8 shadow-elegant hover:shadow-gold transition-all duration-700 hover:-translate-y-2 border border-border overflow-hidden animate-fade-up">
+          <div key={t} style={{ animationDelay: `${i * 120}ms` }} className="group relative rounded-3xl bg-card p-8 shadow-elegant hover:shadow-gold transition-all duration-700 hover:-translate-y-2 gold-border overflow-hidden animate-fade-up">
             <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-gradient-gold opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-700" />
+            <div className="absolute top-4 right-4 font-display text-xs text-accent/40 tracking-widest">0{i+1}</div>
             <div className="relative">
               <div className="w-14 h-14 rounded-2xl bg-gradient-maroon flex items-center justify-center mb-5 shadow-maroon group-hover:scale-110 transition-transform duration-500">
                 <Icon className="w-6 h-6 text-accent" />
               </div>
               <h3 className="font-serif text-2xl mb-3 text-primary">{t}</h3>
               <p className="text-muted-foreground">{d}</p>
+              <div className="mt-5 h-px w-12 bg-gradient-to-r from-accent to-transparent group-hover:w-full transition-all duration-700" />
             </div>
           </div>
         ))}
       </div>
     </div>
+    <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
   </section>
 );
 
@@ -106,15 +118,21 @@ const benefits = [
 export const Benefits = () => (
   <section className="relative py-28 bg-primary text-primary-foreground overflow-hidden">
     <div className="absolute inset-0 sacred-pattern opacity-50" />
+    <div className="absolute inset-0 luxury-noise opacity-30" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] text-accent/10 animate-spin-slow pointer-events-none">
       <SacredMandala className="w-full h-full" />
     </div>
     <div className="relative container max-w-7xl">
       <SectionHeader light eyebrow="What you gain" title="Six dimensions of transformation" sub="Each benefit unlocks a new chapter of your life." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {benefits.map(({ icon: Icon, t, d }) => (
-          <div key={t} className="group glass rounded-2xl p-7 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-1">
-            <Icon className="w-8 h-8 text-accent mb-4 group-hover:scale-110 transition-transform" />
+        {benefits.map(({ icon: Icon, t, d }, i) => (
+          <div key={t} className="group glass gold-border rounded-2xl p-8 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-1 relative">
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform">
+                <Icon className="w-5 h-5 text-primary" />
+              </div>
+              <span className="font-display text-xs tracking-[0.3em] text-accent/60">0{i+1}</span>
+            </div>
             <h3 className="font-serif text-2xl mb-2">{t}</h3>
             <p className="text-primary-foreground/70">{d}</p>
           </div>
@@ -226,25 +244,27 @@ export const Bonus = () => (
   <section id="bonus" className="relative py-28 overflow-hidden bg-primary text-primary-foreground">
     <img src={bonus} alt="" loading="lazy" width={1920} height={800} className="absolute inset-0 w-full h-full object-cover opacity-30" />
     <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(350 70% 12% / 0.92), hsl(350 60% 8% / 0.95))" }} />
+    <div className="absolute inset-0 luxury-noise opacity-30" />
 
     <div className="relative container max-w-6xl text-center">
-      <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full glass mb-6">
+      <div className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full glass gold-border mb-6">
         <Gift className="w-4 h-4 text-accent animate-glow-pulse" />
-        <span className="text-xs tracking-[0.35em] uppercase text-accent font-semibold">Free Bonus · Worth ₹40,000</span>
+        <span className="font-display text-xs tracking-[0.4em] uppercase text-accent font-semibold">Free Bonus · Worth ₹40,000</span>
       </div>
-      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-5">
+      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-5 text-shadow-gold">
         Get <span className="shimmer-gold">6 Spiritual Stairs</span> Free
       </h2>
+      <div className="divider-ornament my-6"><span className="text-accent">✦</span></div>
       <p className="text-lg text-primary-foreground/75 max-w-2xl mx-auto mb-14">
         Six profound disciplines woven into your journey — gifted to every Grandmaster student to deepen the path.
       </p>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {stairs.map((s, i) => (
-          <div key={s.n} className="group relative rounded-2xl glass p-7 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-2">
+          <div key={s.n} className="group relative rounded-2xl glass gold-border p-8 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-2">
             <div className="absolute -inset-px rounded-2xl bg-gradient-gold opacity-0 group-hover:opacity-30 blur-md transition-opacity" />
             <div className="relative">
-              <div className="w-12 h-12 rounded-full bg-gradient-gold mx-auto mb-4 flex items-center justify-center font-serif text-primary text-lg shadow-gold">
+              <div className="w-14 h-14 rounded-full bg-gradient-gold mx-auto mb-4 flex items-center justify-center font-display text-primary text-lg shadow-gold ring-1 ring-accent/40">
                 {String(i + 1).padStart(2, "0")}
               </div>
               <h3 className="font-serif text-2xl mb-1">{s.n}</h3>
@@ -253,11 +273,53 @@ export const Bonus = () => (
           </div>
         ))}
       </div>
+
+      <div className="mt-14 inline-flex flex-wrap items-center justify-center gap-4 px-8 py-5 rounded-full glass gold-border">
+        <span className="text-xs tracking-[0.3em] uppercase text-primary-foreground/70">Total Combined Value</span>
+        <span className="font-display text-2xl text-gradient-gold tracking-wider">₹2,40,000</span>
+        <span className="text-primary-foreground/40">·</span>
+        <span className="text-xs tracking-[0.3em] uppercase text-accent">Yours · Today's Sacred Price</span>
+      </div>
     </div>
   </section>
 );
 
 /* ============== FINAL IMAGE ============== */
+const testimonials = [
+  { n: "Aarav Mehta", r: "Cohort 05 · Mumbai", q: "I came seeking knowledge. I left transformed. The lineage, the depth, the mentorship — nothing in India compares.", s: 5 },
+  { n: "Priya Sharma", r: "Cohort 04 · Bengaluru", q: "Within weeks, my consulting practice tripled. But more importantly — I found my dharma.", s: 5 },
+  { n: "Dr. Rohan Iyer", r: "Cohort 06 · Delhi", q: "A masterclass in spiritual sciences delivered with the rigour of a doctorate. Worth every rupee, and then some.", s: 5 },
+];
+
+export const Testimonials = () => (
+  <section className="relative py-28 bg-gradient-beige overflow-hidden">
+    <div className="absolute inset-0 sacred-pattern opacity-60" />
+    <div className="relative container max-w-7xl">
+      <SectionHeader eyebrow="Voices of the Lineage" title="Words from our Grandmasters" sub="Real transformations from seekers who walked this sacred path." />
+      <div className="grid md:grid-cols-3 gap-6">
+        {testimonials.map((t, i) => (
+          <div key={t.n} className="relative rounded-3xl bg-card p-9 shadow-elegant hover:shadow-maroon transition-all duration-700 hover:-translate-y-2 gold-border">
+            <Quote className="absolute -top-4 left-8 w-10 h-10 text-accent fill-accent/20" />
+            <div className="flex gap-1 mb-5">
+              {Array.from({ length: t.s }).map((_, k) => <Star key={k} className="w-4 h-4 fill-accent text-accent" />)}
+            </div>
+            <p className="font-serif text-xl italic text-primary leading-relaxed mb-7">"{t.q}"</p>
+            <div className="flex items-center gap-4 pt-5 border-t border-border">
+              <div className="w-12 h-12 rounded-full bg-gradient-maroon flex items-center justify-center text-accent font-display text-lg shadow-maroon">
+                {t.n.charAt(0)}
+              </div>
+              <div>
+                <div className="font-display text-sm text-primary tracking-wider uppercase">{t.n}</div>
+                <div className="text-xs tracking-widest uppercase text-muted-foreground">{t.r}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 export const FinalImage = () => (
   <section className="relative h-[70vh] overflow-hidden">
     <img src={finalCosmos} alt="Cosmic mandala" loading="lazy" width={1920} height={900} className="absolute inset-0 w-full h-full object-cover scale-110" style={{ animation: "ken-burns 20s ease-in-out infinite alternate" }} />
@@ -277,24 +339,30 @@ export const FinalImage = () => (
 export const FooterCTA = () => (
   <section className="relative py-28 bg-gradient-maroon text-primary-foreground overflow-hidden">
     <div className="absolute inset-0 sacred-pattern opacity-40" />
+    <div className="absolute inset-0 luxury-noise opacity-25" />
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial-gold opacity-50" style={{ background: "var(--gradient-radial-gold)" }} />
     <div className="relative container max-w-4xl text-center">
       <div className="inline-flex items-center gap-3 mb-6">
         <span className="h-px w-12 bg-accent" />
-        <span className="text-xs tracking-[0.35em] uppercase text-accent font-semibold">Your invitation</span>
+        <span className="font-display text-xs tracking-[0.45em] uppercase text-accent font-semibold">Your Sacred Invitation</span>
         <span className="h-px w-12 bg-accent" />
       </div>
-      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6">
+      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6 text-shadow-gold">
         Start Your Spiritual <span className="italic shimmer-gold">Mastery Journey</span> Today
       </h2>
       <p className="text-lg text-primary-foreground/75 max-w-2xl mx-auto mb-10">
         Enrolment is by intention. The next cohort begins soon — claim your seat among the next generation of Grandmasters.
       </p>
       <div className="flex flex-wrap gap-4 justify-center">
-        <Button variant="hero" size="xl">Enroll Now</Button>
+        <Button variant="hero" size="xl">Reserve My Sacred Seat</Button>
         <Button variant="outlineGold" size="xl">Explore Courses</Button>
       </div>
-      <p className="mt-12 text-sm text-primary-foreground/50 tracking-widest uppercase">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] tracking-[0.3em] uppercase text-primary-foreground/60">
+        <span>✦ 7-Day Sacred Guarantee</span>
+        <span>✦ Lifetime Access</span>
+        <span>✦ Certified Lineage</span>
+      </div>
+      <p className="mt-12 font-display text-sm text-primary-foreground/50 tracking-[0.4em] uppercase">
         ॐ · Parashari Grandmaster Program · Est. Wisdom of Ages
       </p>
     </div>
