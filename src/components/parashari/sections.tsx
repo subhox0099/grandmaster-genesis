@@ -5,6 +5,7 @@ import {
   BookOpen, Sparkles, Compass, Infinity as InfinityIcon, Briefcase, Heart, Eye, Flame,
   Video, Library, Crown, Award, MessageCircleQuestion, Gift, CalendarClock, Users,
   Star, Gem, Hand, Home, ScrollText, Sun, CircleDot, Flower2, Mountain, Disc3,
+  Quote,
 } from "lucide-react";
 import about from "@/assets/about-scholar.jpg";
 import bonus from "@/assets/bonus-banner.jpg";
