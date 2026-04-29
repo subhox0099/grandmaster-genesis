@@ -303,24 +303,30 @@ export const FinalImage = () => (
 export const FooterCTA = () => (
   <section className="relative py-28 bg-gradient-maroon text-primary-foreground overflow-hidden">
     <div className="absolute inset-0 sacred-pattern opacity-40" />
+    <div className="absolute inset-0 luxury-noise opacity-25" />
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-gradient-radial-gold opacity-50" style={{ background: "var(--gradient-radial-gold)" }} />
     <div className="relative container max-w-4xl text-center">
       <div className="inline-flex items-center gap-3 mb-6">
         <span className="h-px w-12 bg-accent" />
-        <span className="text-xs tracking-[0.35em] uppercase text-accent font-semibold">Your invitation</span>
+        <span className="font-display text-xs tracking-[0.45em] uppercase text-accent font-semibold">Your Sacred Invitation</span>
         <span className="h-px w-12 bg-accent" />
       </div>
-      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6">
+      <h2 className="font-serif text-5xl md:text-7xl leading-[1.05] mb-6 text-shadow-gold">
         Start Your Spiritual <span className="italic shimmer-gold">Mastery Journey</span> Today
       </h2>
       <p className="text-lg text-primary-foreground/75 max-w-2xl mx-auto mb-10">
         Enrolment is by intention. The next cohort begins soon — claim your seat among the next generation of Grandmasters.
       </p>
       <div className="flex flex-wrap gap-4 justify-center">
-        <Button variant="hero" size="xl">Enroll Now</Button>
+        <Button variant="hero" size="xl">Reserve My Sacred Seat</Button>
         <Button variant="outlineGold" size="xl">Explore Courses</Button>
       </div>
-      <p className="mt-12 text-sm text-primary-foreground/50 tracking-widest uppercase">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] tracking-[0.3em] uppercase text-primary-foreground/60">
+        <span>✦ 7-Day Sacred Guarantee</span>
+        <span>✦ Lifetime Access</span>
+        <span>✦ Certified Lineage</span>
+      </div>
+      <p className="mt-12 font-display text-sm text-primary-foreground/50 tracking-[0.4em] uppercase">
         ॐ · Parashari Grandmaster Program · Est. Wisdom of Ages
       </p>
     </div>
