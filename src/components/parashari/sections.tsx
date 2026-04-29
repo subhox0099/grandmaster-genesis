@@ -5,8 +5,9 @@ import {
   BookOpen, Sparkles, Compass, Infinity as InfinityIcon, Briefcase, Heart, Eye, Flame,
   Video, Library, Crown, Award, MessageCircleQuestion, Gift, CalendarClock, Users,
   Star, Gem, Hand, Home, ScrollText, Sun, CircleDot, Flower2, Mountain, Disc3,
-  Quote,
+  Quote, CheckCircle2, Clock, IndianRupee, GraduationCap, ArrowRight,
 } from "lucide-react";
+import { useState } from "react";
 import about from "@/assets/about-scholar.jpg";
 import bonus from "@/assets/bonus-banner.jpg";
 import featLive from "@/assets/feature-live.jpg";
