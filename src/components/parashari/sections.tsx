@@ -285,6 +285,41 @@ export const Bonus = () => (
 );
 
 /* ============== FINAL IMAGE ============== */
+const testimonials = [
+  { n: "Aarav Mehta", r: "Cohort 05 · Mumbai", q: "I came seeking knowledge. I left transformed. The lineage, the depth, the mentorship — nothing in India compares.", s: 5 },
+  { n: "Priya Sharma", r: "Cohort 04 · Bengaluru", q: "Within weeks, my consulting practice tripled. But more importantly — I found my dharma.", s: 5 },
+  { n: "Dr. Rohan Iyer", r: "Cohort 06 · Delhi", q: "A masterclass in spiritual sciences delivered with the rigour of a doctorate. Worth every rupee, and then some.", s: 5 },
+];
+
+export const Testimonials = () => (
+  <section className="relative py-28 bg-gradient-beige overflow-hidden">
+    <div className="absolute inset-0 sacred-pattern opacity-60" />
+    <div className="relative container max-w-7xl">
+      <SectionHeader eyebrow="Voices of the Lineage" title="Words from our Grandmasters" sub="Real transformations from seekers who walked this sacred path." />
+      <div className="grid md:grid-cols-3 gap-6">
+        {testimonials.map((t, i) => (
+          <div key={t.n} className="relative rounded-3xl bg-card p-9 shadow-elegant hover:shadow-maroon transition-all duration-700 hover:-translate-y-2 gold-border">
+            <Quote className="absolute -top-4 left-8 w-10 h-10 text-accent fill-accent/20" />
+            <div className="flex gap-1 mb-5">
+              {Array.from({ length: t.s }).map((_, k) => <Star key={k} className="w-4 h-4 fill-accent text-accent" />)}
+            </div>
+            <p className="font-serif text-xl italic text-primary leading-relaxed mb-7">"{t.q}"</p>
+            <div className="flex items-center gap-4 pt-5 border-t border-border">
+              <div className="w-12 h-12 rounded-full bg-gradient-maroon flex items-center justify-center text-accent font-display text-lg shadow-maroon">
+                {t.n.charAt(0)}
+              </div>
+              <div>
+                <div className="font-display text-sm text-primary tracking-wider uppercase">{t.n}</div>
+                <div className="text-xs tracking-widest uppercase text-muted-foreground">{t.r}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 export const FinalImage = () => (
   <section className="relative h-[70vh] overflow-hidden">
     <img src={finalCosmos} alt="Cosmic mandala" loading="lazy" width={1920} height={900} className="absolute inset-0 w-full h-full object-cover scale-110" style={{ animation: "ken-burns 20s ease-in-out infinite alternate" }} />

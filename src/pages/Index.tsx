@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/parashari/Navbar";
 import { HeroCarousel } from "@/components/parashari/HeroCarousel";
-import { About, Why, Benefits, FeaturesAndPillars, Bonus, FinalImage, FooterCTA } from "@/components/parashari/sections";
+import { About, Why, Benefits, FeaturesAndPillars, Bonus, Testimonials, FinalImage, FooterCTA } from "@/components/parashari/sections";
 
 const Index = () => {
   return (
@@ -12,6 +12,7 @@ const Index = () => {
       <Benefits />
       <FeaturesAndPillars />
       <Bonus />
+      <Testimonials />
       <FinalImage />
       <FooterCTA />
     </main>
