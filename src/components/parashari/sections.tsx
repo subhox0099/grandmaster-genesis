@@ -20,31 +20,38 @@ export const About = () => (
     <div className="absolute -top-32 -left-32 w-96 h-96 text-accent/10 animate-spin-slow">
       <SacredMandala className="w-full h-full" />
     </div>
+    <div className="absolute top-1/3 right-10 w-2 h-32 bg-gradient-to-b from-transparent via-accent/40 to-transparent" />
     <div className="container max-w-7xl grid lg:grid-cols-2 gap-16 items-center">
       <div className="relative">
         <div className="absolute -inset-6 bg-gradient-gold opacity-20 blur-3xl rounded-full" />
-        <div className="relative rounded-[2rem] overflow-hidden shadow-maroon group">
+        <div className="relative rounded-[2rem] overflow-hidden shadow-maroon group gold-border">
           <img src={about} alt="Ancient spiritual scriptures" loading="lazy" width={1280} height={1280} className="w-full h-[600px] object-cover transition-transform duration-[2s] group-hover:scale-105" />
           <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
+          <div className="absolute top-5 left-5 px-4 py-1.5 rounded-full glass text-[10px] tracking-[0.4em] uppercase text-accent-glow">Lineage · Parashari</div>
         </div>
-        <div className="absolute -bottom-8 -right-8 glass-light rounded-2xl px-6 py-5 shadow-elegant animate-float-slow">
-          <div className="text-3xl font-serif text-primary">10,000+</div>
+        <div className="absolute -bottom-8 -right-8 glass-light rounded-2xl px-6 py-5 shadow-elegant animate-float-slow gold-border">
+          <div className="text-3xl font-display text-primary tracking-wide">10,000+</div>
           <div className="text-xs tracking-widest uppercase text-muted-foreground">Seekers Transformed</div>
+        </div>
+        <div className="absolute -top-6 -left-6 w-24 h-24 rounded-full bg-gradient-gold opacity-90 flex flex-col items-center justify-center shadow-gold rotate-[-8deg] animate-float-slow">
+          <div className="font-display text-[10px] tracking-[0.3em] uppercase text-primary">Cohort</div>
+          <div className="font-serif text-2xl text-primary leading-none">07</div>
         </div>
       </div>
 
       <div>
-        <div className="inline-flex items-center gap-3 mb-5">
+        <div className="inline-flex items-center gap-3 mb-6">
           <span className="h-px w-10 bg-accent" />
-          <span className="text-xs tracking-[0.35em] uppercase text-accent font-semibold">The Journey</span>
+          <span className="font-display text-[11px] tracking-[0.45em] uppercase text-accent font-semibold">The Journey</span>
         </div>
         <h2 className="font-serif text-4xl md:text-6xl leading-[1.05] mb-6 text-primary">
           Not just a course. <br />A <span className="italic text-gradient-gold">transformation</span>.
         </h2>
+        <div className="h-px w-24 bg-gradient-to-r from-accent to-transparent mb-7" />
         <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
           The Parashari Grandmaster Program is a sacred 48-week immersion designed for the modern seeker. Walk the path that ancient sages walked — guided by master mentors, supported by a global community, and rooted in scripture-backed wisdom that has stood for millennia.
         </p>
-        <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+        <p className="text-lg text-muted-foreground mb-10 leading-relaxed italic">
           Every lesson is a step. Every practice is a doorway. By the end, you don't just understand spiritual sciences — you embody them.
         </p>
         <div className="grid grid-cols-3 gap-4">
@@ -53,9 +60,9 @@ export const About = () => (
             { icon: Video, k: "200+", v: "Lectures" },
             { icon: Users, k: "1:1", v: "Mentorship" },
           ].map(({ icon: Icon, k, v }) => (
-            <div key={v} className="rounded-2xl border border-border bg-card p-5 text-center hover:shadow-elegant hover:-translate-y-1 transition-all duration-500">
+            <div key={v} className="rounded-2xl bg-card p-5 text-center hover:shadow-gold hover:-translate-y-1 transition-all duration-500 gold-border">
               <Icon className="w-6 h-6 mx-auto text-accent mb-3" />
-              <div className="font-serif text-2xl text-primary">{k}</div>
+              <div className="font-display text-2xl text-primary tracking-wider">{k}</div>
               <div className="text-xs tracking-widest uppercase text-muted-foreground">{v}</div>
             </div>
           ))}
@@ -73,24 +80,28 @@ const whyItems = [
   { icon: InfinityIcon, t: "Lifetime Mindset Shift", d: "Tools, rituals and frameworks that stay with you forever." },
 ];
 export const Why = () => (
-  <section className="relative py-28 bg-gradient-beige">
+  <section className="relative py-28 bg-gradient-beige overflow-hidden">
+    <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
     <div className="container max-w-7xl">
       <SectionHeader eyebrow="Why this program" title="Wisdom that walks with you for life" sub="Four pillars that make this the most complete spiritual mastery experience available today." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {whyItems.map(({ icon: Icon, t, d }, i) => (
-          <div key={t} style={{ animationDelay: `${i * 120}ms` }} className="group relative rounded-3xl bg-card p-8 shadow-elegant hover:shadow-gold transition-all duration-700 hover:-translate-y-2 border border-border overflow-hidden animate-fade-up">
+          <div key={t} style={{ animationDelay: `${i * 120}ms` }} className="group relative rounded-3xl bg-card p-8 shadow-elegant hover:shadow-gold transition-all duration-700 hover:-translate-y-2 gold-border overflow-hidden animate-fade-up">
             <div className="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-gradient-gold opacity-0 group-hover:opacity-20 blur-2xl transition-opacity duration-700" />
+            <div className="absolute top-4 right-4 font-display text-xs text-accent/40 tracking-widest">0{i+1}</div>
             <div className="relative">
               <div className="w-14 h-14 rounded-2xl bg-gradient-maroon flex items-center justify-center mb-5 shadow-maroon group-hover:scale-110 transition-transform duration-500">
                 <Icon className="w-6 h-6 text-accent" />
               </div>
               <h3 className="font-serif text-2xl mb-3 text-primary">{t}</h3>
               <p className="text-muted-foreground">{d}</p>
+              <div className="mt-5 h-px w-12 bg-gradient-to-r from-accent to-transparent group-hover:w-full transition-all duration-700" />
             </div>
           </div>
         ))}
       </div>
     </div>
+    <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
   </section>
 );
 
