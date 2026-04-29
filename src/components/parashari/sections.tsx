@@ -117,15 +117,21 @@ const benefits = [
 export const Benefits = () => (
   <section className="relative py-28 bg-primary text-primary-foreground overflow-hidden">
     <div className="absolute inset-0 sacred-pattern opacity-50" />
+    <div className="absolute inset-0 luxury-noise opacity-30" />
     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] text-accent/10 animate-spin-slow pointer-events-none">
       <SacredMandala className="w-full h-full" />
     </div>
     <div className="relative container max-w-7xl">
       <SectionHeader light eyebrow="What you gain" title="Six dimensions of transformation" sub="Each benefit unlocks a new chapter of your life." />
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {benefits.map(({ icon: Icon, t, d }) => (
-          <div key={t} className="group glass rounded-2xl p-7 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-1">
-            <Icon className="w-8 h-8 text-accent mb-4 group-hover:scale-110 transition-transform" />
+        {benefits.map(({ icon: Icon, t, d }, i) => (
+          <div key={t} className="group glass gold-border rounded-2xl p-8 hover:bg-accent/10 transition-all duration-500 hover:-translate-y-1 relative">
+            <div className="flex items-start justify-between mb-5">
+              <div className="w-12 h-12 rounded-xl bg-gradient-gold flex items-center justify-center shadow-gold group-hover:scale-110 transition-transform">
+                <Icon className="w-5 h-5 text-primary" />
+              </div>
+              <span className="font-display text-xs tracking-[0.3em] text-accent/60">0{i+1}</span>
+            </div>
             <h3 className="font-serif text-2xl mb-2">{t}</h3>
             <p className="text-primary-foreground/70">{d}</p>
           </div>
