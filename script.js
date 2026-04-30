@@ -193,40 +193,56 @@ const stairs = [
   { i:'∞', img:'/assets/final-cosmos.jpg', t:'Past Life Regression', d:"Journey safely into soul memory. Understand recurring patterns, karmic relationships and the deeper arc of your incarnations.", points:["Guided regression","Pattern recognition","Karmic resolution"] },
 ];
 (function buildStairs(){
-  const list = document.getElementById('stairs-list');
-  const card = document.getElementById('stairs-card');
-  let active = 0;
-  function renderList(){
-    list.innerHTML = stairs.map((s,i)=>`
-      <button class="stair-btn gold-border ${i===active?'active':''}" data-idx="${i}">
-        <span class="icon-wrap">${s.i}</span>
-        <span class="stair-meta">
-          <span class="stair-tag">Stair 0${i+1}</span>
-          <span class="stair-title">${s.t}</span>
-        </span>
-        <span class="arrow">→</span>
-      </button>
-    `).join('');
-    list.querySelectorAll('.stair-btn').forEach(b=>{
-      b.addEventListener('click', ()=>{ active = +b.dataset.idx; renderList(); renderCard(); });
-    });
-  }
-  function renderCard(){
-    const s = stairs[active];
-    card.innerHTML = `
-      <div class="stairs-img-wrap">
-        <img src="${s.img}" alt="${s.t}" />
-        <div class="stairs-img-overlay"></div>
-        <div class="stairs-img-tag">Stair 0${active+1} · ${s.t}</div>
-        <h3 class="stairs-img-title serif">${s.t}</h3>
-      </div>
-      <div class="stairs-body">
-        <p>${s.d}</p>
-        <ul>${s.points.map(p=>`<li>${p}</li>`).join('')}</ul>
+  const strip = document.getElementById('stairs-strip');
+  if(!strip) return;
+  
+  strip.classList.add('timeline-container');
+  
+  strip.innerHTML = stairs.map((s,i)=>{
+    const isEven = i % 2 === 0;
+    return `
+      <div class="timeline-row ${isEven ? 'timeline-left' : 'timeline-right'}">
+        <div class="premium-strip">
+          <div class="timeline-img">
+            <img src="${s.img}" alt="${s.t}" />
+            <div class="timeline-img-overlay"></div>
+            <div class="premium-tag">
+              <span class="premium-tag-num">0${i+1}</span>
+              <span class="premium-tag-text">Level</span>
+            </div>
+          </div>
+          <div class="timeline-info">
+            <div class="watermark-number">0${i+1}</div>
+            <div class="timeline-icon-title">
+              <div class="timeline-icon">${s.i}</div>
+              <h3 class="premium-text-gold">${s.t}</h3>
+            </div>
+            <ul class="timeline-points">
+              ${s.points.map(p=>`<li>${p}</li>`).join('')}
+            </ul>
+            <div class="explore-arrow">
+               <span>Unlock Mastery</span>
+               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        </div>
       </div>
     `;
+  }).join('');
+
+  if('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ 
+        if(e.isIntersecting){ 
+          e.target.classList.add('in-view'); 
+          io.unobserve(e.target); 
+        } 
+      });
+    }, { threshold: 0.15 });
+    strip.querySelectorAll('.timeline-row').forEach(row => io.observe(row));
+  } else {
+    strip.querySelectorAll('.timeline-row').forEach(row => row.classList.add('in-view'));
   }
-  renderList(); renderCard();
 })();
 
 /* ===== Programs (12 pillars) ===== */
