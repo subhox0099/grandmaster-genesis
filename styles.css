@@ -193,8 +193,8 @@ h1,h2,h3,h4,h5,.serif { font-family: 'Cormorant Garamond','Playfair Display',ser
     radial-gradient(circle at 80% 60%, hsl(350 65% 22% / 0.08) 0, transparent 40%); }
 .hero-fade-bottom { position: absolute; left: 0; right: 0; bottom: 0; height: 160px; background: linear-gradient(to top, var(--primary), transparent); }
 .hero-content { position: relative; z-index: 10; height: 100%; display: flex; align-items: center; }
-.hero-inner { max-width: 760px; opacity: 0; }
-.hero-slide.active .hero-inner { animation: fade-up .9s var(--ease) both; }
+.hero-inner { max-width: 760px; opacity: 0; transform: translateY(30px); }
+.hero-slide.active .hero-inner { opacity: 1; transform: none; animation: fade-up .9s var(--ease) both; }
 
 .rate-row { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.75rem; }
 .stars { display: flex; gap: 2px; color: var(--accent); }
